@@ -1,0 +1,181 @@
+[
+  {
+    "question": "How could stronger rivals put pressure on NVIDIA's future performance?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "competitors",
+      "products",
+      "market"
+    ]
+  },
+  {
+    "question": "What challenges could NVIDIA encounter if demand for its products becomes difficult to predict?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "demand",
+      "products",
+      "revenue"
+    ]
+  },
+  {
+    "question": "How could restrictions imposed by governments outside the United States affect NVIDIA?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "government",
+      "customers",
+      "business"
+    ]
+  },
+  {
+    "question": "What problems could occur if NVIDIA's suppliers or manufacturing partners cannot meet its needs?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "suppliers",
+      "manufacturing",
+      "products"
+    ]
+  },
+  {
+    "question": "How could unauthorized resale of NVIDIA products affect the company?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "gray market",
+      "demand",
+      "products"
+    ]
+  },
+  {
+    "question": "How does NVIDIA explain its approach to accelerated computing?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "accelerated computing",
+      "GPU",
+      "platform"
+    ]
+  },
+  {
+    "question": "What role does artificial intelligence play in NVIDIA's overall business strategy?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "AI",
+      "computing",
+      "platform"
+    ]
+  },
+  {
+    "question": "How does NVIDIA describe the products and technologies it offers to customers?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "products",
+      "GPU",
+      "software"
+    ]
+  },
+  {
+    "question": "What does NVIDIA say about the importance of software to its computing ecosystem?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "software",
+      "platform",
+      "computing"
+    ]
+  },
+  {
+    "question": "What does management identify as important drivers of NVIDIA's financial performance?",
+    "expected_section": "Item 7 - Management's Discussion and Analysis of Financial Condition and Results of Operations",
+    "expected_keywords": [
+      "revenue",
+      "results",
+      "operations"
+    ]
+  },
+  {
+    "question": "How does NVIDIA explain recent changes in its financial results?",
+    "expected_section": "Item 7 - Management's Discussion and Analysis of Financial Condition and Results of Operations",
+    "expected_keywords": [
+      "revenue",
+      "financial",
+      "results"
+    ]
+  },
+  {
+    "question": "What does management discuss when evaluating NVIDIA's operating performance?",
+    "expected_section": "Item 7 - Management's Discussion and Analysis of Financial Condition and Results of Operations",
+    "expected_keywords": [
+      "operations",
+      "revenue",
+      "results"
+    ]
+  },
+  {
+    "question": "How would changes in interest rates affect NVIDIA's investment portfolio?",
+    "expected_section": "Item 7A - Quantitative and Qualitative Disclosures about Market Risk",
+    "expected_keywords": [
+      "interest rate",
+      "investment",
+      "fair value"
+    ]
+  },
+  {
+    "question": "How exposed is NVIDIA to movements in foreign currencies?",
+    "expected_section": "Item 7A - Quantitative and Qualitative Disclosures about Market Risk",
+    "expected_keywords": [
+      "foreign exchange",
+      "currency",
+      "United States dollars"
+    ]
+  },
+  {
+    "question": "How does NVIDIA assess the effectiveness of its financial reporting controls?",
+    "expected_section": "Item 9A - Controls and Procedures",
+    "expected_keywords": [
+      "internal control",
+      "financial reporting",
+      "effectiveness"
+    ]
+  },
+  {
+    "question": "What does NVIDIA report about changes to its internal control environment?",
+    "expected_section": "Item 9A - Controls and Procedures",
+    "expected_keywords": [
+      "internal control",
+      "controls",
+      "financial reporting"
+    ]
+  },
+  {
+    "question": "Where does NVIDIA discuss information concerning its board members and audit committee?",
+    "expected_section": "Item 10 - Directors, Executive Officers and Corporate Governance",
+    "expected_keywords": [
+      "directors",
+      "Audit Committee",
+      "corporate governance"
+    ]
+  },
+  {
+    "question": "Where can investors find NVIDIA's disclosures concerning pay for senior management?",
+    "expected_section": "Item 11 - Executive Compensation",
+    "expected_keywords": [
+      "executive compensation",
+      "Compensation Committee"
+    ]
+  },
+  {
+    "question": "What information does NVIDIA provide about the performance of its common stock?",
+    "expected_section": "Item 5 - Market for Registrant's Common Equity, Related Stockholder Matters and Issuer Purchases of Equity Securities",
+    "expected_keywords": [
+      "NVIDIA Corporation",
+      "S&P 500",
+      "Nasdaq 100"
+    ]
+  },
+  {
+    "question": "Where does NVIDIA address ownership by major shareholders and management?",
+    "expected_section": "Item 12 - Security Ownership of Certain Beneficial Owners and Management and Related Stockholder Matters",
+    "expected_keywords": [
+      "ownership",
+      "management",
+      "security"
+    ]
+  }
+]

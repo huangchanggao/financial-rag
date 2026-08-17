@@ -1,0 +1,182 @@
+[
+  {
+    "question": "What risks does NVIDIA face from export controls?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "export controls",
+      "competitive",
+      "supply chain"
+    ]
+  },
+  {
+    "question": "What cybersecurity risks does NVIDIA face?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "security",
+      "breach",
+      "confidential"
+    ]
+  },
+  {
+    "question": "How does competition affect NVIDIA's business?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "competitors",
+      "competition",
+      "market"
+    ]
+  },
+  {
+    "question": "What risks does NVIDIA face from supply chain disruptions?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "supply chain",
+      "manufacturing",
+      "distribution"
+    ]
+  },
+  {
+    "question": "What risks could arise from NVIDIA relying on third-party manufacturers?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "third party",
+      "manufacturing",
+      "suppliers"
+    ]
+  },
+  {
+    "question": "How could changes in government regulations affect NVIDIA?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "regulation",
+      "government",
+      "compliance"
+    ]
+  },
+  {
+    "question": "What risks does NVIDIA identify related to data security and proprietary information?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "proprietary",
+      "information",
+      "security"
+    ]
+  },
+  {
+    "question": "What risks could NVIDIA face from changes in customer demand?",
+    "expected_section": "Item 1A - Risk Factors",
+    "expected_keywords": [
+      "demand",
+      "customers",
+      "products"
+    ]
+  },
+  {
+    "question": "What does NVIDIA say about its business?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "accelerated computing",
+      "AI",
+      "data center"
+    ]
+  },
+  {
+    "question": "How does NVIDIA describe its role in accelerated computing?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "accelerated computing",
+      "GPU",
+      "computing"
+    ]
+  },
+  {
+    "question": "What does NVIDIA say about its data center business?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "data center",
+      "AI",
+      "infrastructure"
+    ]
+  },
+  {
+    "question": "How does NVIDIA describe the role of GPUs in its business?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "GPU",
+      "computing",
+      "AI"
+    ]
+  },
+  {
+    "question": "What does NVIDIA say about its platforms and software?",
+    "expected_section": "Item 1 - Business",
+    "expected_keywords": [
+      "platform",
+      "software",
+      "AI"
+    ]
+  },
+  {
+    "question": "What does management say about NVIDIA's financial condition and operating results?",
+    "expected_section": "Item 7 - Management's Discussion and Analysis of Financial Condition and Results of Operations",
+    "expected_keywords": [
+      "financial",
+      "results",
+      "revenue"
+    ]
+  },
+  {
+    "question": "What factors does NVIDIA discuss as affecting its recent operating results?",
+    "expected_section": "Item 7 - Management's Discussion and Analysis of Financial Condition and Results of Operations",
+    "expected_keywords": [
+      "results",
+      "revenue",
+      "operations"
+    ]
+  },
+  {
+    "question": "What does NVIDIA report about changes in revenue and business performance?",
+    "expected_section": "Item 7 - Management's Discussion and Analysis of Financial Condition and Results of Operations",
+    "expected_keywords": [
+      "revenue",
+      "growth",
+      "results"
+    ]
+  },
+  {
+    "question": "What market risks does NVIDIA discuss?",
+    "expected_section": "Item 7A - Quantitative and Qualitative Disclosures about Market Risk",
+    "expected_keywords": [
+      "market risk",
+      "interest",
+      "foreign"
+    ]
+  },
+  {
+    "question": "What does NVIDIA disclose about controls and procedures?",
+    "expected_section": "Item 9A - Controls and Procedures",
+    "expected_keywords": [
+      "controls",
+      "procedures",
+      "internal control"
+    ]
+  },
+  {
+    "question": "What information does NVIDIA provide about its directors and corporate governance?",
+    "expected_section": "Item 10 - Directors, Executive Officers and Corporate Governance",
+    "expected_keywords": [
+      "directors",
+      "executive officers",
+      "governance"
+    ]
+  },
+  {
+    "question": "What does NVIDIA disclose about executive compensation?",
+    "expected_section": "Item 11 - Executive Compensation",
+    "expected_keywords": [
+      "executive",
+      "compensation",
+      "officers"
+    ]
+  }
+]

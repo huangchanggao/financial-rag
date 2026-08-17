@@ -1,0 +1,59 @@
+import sqlite3
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DB_PATH = BASE_DIR / "database" / "financial.db"
+
+conn = sqlite3.connect(DB_PATH)
+cursor = conn.cursor()
+
+cursor.execute("SELECT COUNT(*) FROM companies")
+print("Companies:", cursor.fetchone()[0])
+
+cursor.execute("SELECT COUNT(*) FROM filings")
+print("Filings:", cursor.fetchone()[0])
+
+cursor.execute("SELECT COUNT(*) FROM chunks")
+print("Chunks:", cursor.fetchone()[0])
+
+print("\n前 3 個 chunks：")
+
+cursor.execute("""
+SELECT
+    chunks.id,
+    companies.ticker,
+    filings.form_type,
+    filings.filing_date,
+    chunks.chunk_index,
+    substr(chunks.chunk_text, 1, 200)
+FROM chunks
+JOIN filings
+    ON chunks.filing_id = filings.id
+JOIN companies
+    ON filings.company_id = companies.id
+LIMIT 3
+""")
+
+for row in cursor.fetchall():
+    print("\n", row)
+    
+# %%
+cursor.execute("""
+SELECT
+    section,
+    COUNT(*)
+FROM chunks
+GROUP BY section
+ORDER BY COUNT(*) DESC
+""")
+
+rows = cursor.fetchall()
+
+print("\nSection 統計：")
+
+for row in rows:
+    print(row)
+
+# %%
+conn.close()
