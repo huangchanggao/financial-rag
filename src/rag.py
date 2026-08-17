@@ -5,6 +5,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
 
+from section_router import route_section
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 VECTORSTORE_DIR = BASE_DIR / "vectorstore" / "faiss_index"
@@ -32,10 +34,20 @@ def load_vectorstore():
 
 
 def retrieve_documents(vectorstore, question, k=5):
-    documents = vectorstore.similarity_search(
-        question,
-        k=k
-    )
+    section = route_section(question)
+
+    if section:
+        documents = vectorstore.similarity_search(
+            question,
+            k=5,
+            filter={"section": section},
+            fetch_k=500
+        )
+    else:
+        documents = vectorstore.similarity_search(
+            question,
+            k=5
+        )
 
     return documents
 
