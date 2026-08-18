@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-huggingface
+langchain-groq
+langchain-text-splitters
+faiss-cpu
+sentence-transformers
+python-dotenv
+requests
+beautifulsoup4
