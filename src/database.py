@@ -49,6 +49,7 @@ def create_tables():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         filing_id INTEGER NOT NULL,
         section TEXT,
+        title TEXT,
         chunk_index INTEGER NOT NULL,
         chunk_text TEXT NOT NULL,
     

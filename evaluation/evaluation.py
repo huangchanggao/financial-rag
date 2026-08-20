@@ -1,10 +1,10 @@
+# %%
+
 from pathlib import Path
 import sys
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
-
-from src.section_router import route_section
 
 
 import json
@@ -18,14 +18,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATASET_PATH = (
     BASE_DIR
     / "evaluation"
-    / "holdout_dataset.json"
+    / "multi_company_dataset.json"
 )
 VECTORSTORE_DIR = BASE_DIR / "vectorstore" / "faiss_index"
 
 
 def load_dataset():
+    print("DATASET_PATH =", DATASET_PATH)
+
     with open(DATASET_PATH, "r", encoding="utf-8") as f:
-        dataset = json.load(f)
+        content = f.read()
+
+    print("檔案長度 =", len(content))
+    print("前 100 字 =", repr(content[:100]))
+
+    dataset = json.loads(content)
 
     return dataset
 
@@ -164,7 +171,7 @@ def evaluate_question(vectorstore, item, k=5):
         "keyword_results": keyword_results
     }
 
-
+'''
 def main():
     print("載入 evaluation dataset...")
 
@@ -382,7 +389,259 @@ def main():
         f"\nAverage Keyword Recall@5: "
         f"{average_keyword_recall:.2%}"
     )
+  '''
+def evaluate_global(vectorstore, question, k=5):
+    return vectorstore.similarity_search(
+        question,
+        k=k
+    )
 
+
+def evaluate_company_filtered(
+    vectorstore,
+    question,
+    ticker,
+    k=5
+):
+    return vectorstore.similarity_search(
+        question,
+        k=k,
+        filter={"ticker": ticker},
+        fetch_k=2000
+    )
+
+
+def evaluate_company_section_filtered(
+    vectorstore,
+    question,
+    ticker,
+    section,
+    k=5
+):
+    return vectorstore.similarity_search(
+        question,
+        k=k,
+        filter={
+            "ticker": ticker,
+            "section": section
+        },
+        fetch_k=2000
+    )
+
+def section_hit_at_k(
+    documents,
+    expected_sections,
+    k
+):
+    top_k = documents[:k]
+
+    for doc in top_k:
+        section = doc.metadata.get(
+            "section"
+        )
+
+        if section in expected_sections:
+            return 1
+
+    return 0
+
+def ticker_hit_at_k(
+    documents,
+    expected_ticker,
+    k
+):
+    top_k = documents[:k]
+
+    for doc in top_k:
+        ticker = doc.metadata.get(
+            "ticker"
+        )
+
+        if ticker == expected_ticker:
+            return 1
+
+    return 0
+
+def evaluate_dataset(
+    vectorstore,
+    dataset
+):
+    global_ticker_hit_1 = 0
+    global_ticker_hit_5 = 0
+    global_section_hit_1 = 0
+    global_section_hit_3 = 0
+    global_section_hit_5 = 0
+
+    company_section_hit_1 = 0
+    company_section_hit_3 = 0
+    company_section_hit_5 = 0
+
+    total = len(dataset)
+
+    for item in dataset:
+        question = item["question"]
+        ticker = item["ticker"]
+        expected_sections = item["expected_sections"]
+
+        # =========================================
+        # Global FAISS
+        # =========================================
+        global_docs = evaluate_global(
+            vectorstore,
+            question,
+            k=5
+        )
+
+        global_ticker_hit_1 += ticker_hit_at_k(
+            global_docs,
+            ticker,
+            1
+        )
+
+        global_ticker_hit_5 += ticker_hit_at_k(
+            global_docs,
+            ticker,
+            5
+        )
+
+        global_section_hit_1 += section_hit_at_k(
+            global_docs,
+            expected_sections,
+            1
+        )
+
+        global_section_hit_3 += section_hit_at_k(
+            global_docs,
+            expected_sections,
+            3
+        )
+
+        global_section_hit_5 += section_hit_at_k(
+            global_docs,
+            expected_sections,
+            5
+        )
+
+        # =========================================
+        # Company-filtered FAISS
+        # =========================================
+        company_docs = evaluate_company_filtered(
+            vectorstore,
+            question,
+            ticker,
+            k=5
+        )
+
+        company_section_hit_1 += section_hit_at_k(
+            company_docs,
+            expected_sections,
+            1
+        )
+
+        company_section_hit_3 += section_hit_at_k(
+            company_docs,
+            expected_sections,
+            3
+        )
+
+        company_section_hit_5 += section_hit_at_k(
+            company_docs,
+            expected_sections,
+            5
+        )
+
+        # =========================================
+        # 每題結果
+        # =========================================
+        print("\n" + "=" * 80)
+        print("Question:", question)
+        print("Expected ticker:", ticker)
+        print(
+            "Expected sections:",
+            expected_sections
+        )
+
+        print("\nGlobal top 5:")
+        for doc in global_docs:
+            print(
+                doc.metadata.get("ticker"),
+                doc.metadata.get("section")
+            )
+
+        print("\nCompany-filtered top 5:")
+        for doc in company_docs:
+            print(
+                doc.metadata.get("ticker"),
+                doc.metadata.get("section")
+            )
+
+    # =========================================
+    # Summary
+    # =========================================
+    print("\n" + "=" * 80)
+    print("FINAL RESULTS")
+    print("=" * 80)
+
+    print("\nGlobal FAISS")
+    print(
+        f"Ticker Hit@1: "
+        f"{global_ticker_hit_1}/{total} "
+        f"= {global_ticker_hit_1 / total:.2%}"
+    )
+    print(
+        f"Ticker Hit@5: "
+        f"{global_ticker_hit_5}/{total} "
+        f"= {global_ticker_hit_5 / total:.2%}"
+    )
+    print(
+        f"Section Hit@1: "
+        f"{global_section_hit_1}/{total} "
+        f"= {global_section_hit_1 / total:.2%}"
+    )
+    print(
+        f"Section Hit@3: "
+        f"{global_section_hit_3}/{total} "
+        f"= {global_section_hit_3 / total:.2%}"
+    )
+    print(
+        f"Section Hit@5: "
+        f"{global_section_hit_5}/{total} "
+        f"= {global_section_hit_5 / total:.2%}"
+    )
+
+    print("\nCompany-filtered FAISS")
+    print(
+        f"Section Hit@1: "
+        f"{company_section_hit_1}/{total} "
+        f"= {company_section_hit_1 / total:.2%}"
+    )
+    print(
+        f"Section Hit@3: "
+        f"{company_section_hit_3}/{total} "
+        f"= {company_section_hit_3 / total:.2%}"
+    )
+    print(
+        f"Section Hit@5: "
+        f"{company_section_hit_5}/{total} "
+        f"= {company_section_hit_5 / total:.2%}"
+    )
+# %%
+
+def main():
+    print("載入 multi-company evaluation dataset...")
+
+    dataset = load_dataset()
+
+    print(f"共 {len(dataset)} 題")
+
+    print("\n載入 FAISS index...")
+
+    vectorstore = load_vectorstore()
+
+    evaluate_dataset(
+        vectorstore,
+        dataset
+    )
 
 if __name__ == "__main__":
     main()

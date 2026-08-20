@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What are NVIDIA's main risk factors?",
+    "ticker": "NVDA",
+    "expected_sections": ["Item 1A"]
+  },
+  {
+    "question": "What market risks does NVIDIA discuss?",
+    "ticker": "NVDA",
+    "expected_sections": ["Item 7A"]
+  },
+  {
+    "question": "How does NVIDIA describe its business?",
+    "ticker": "NVDA",
+    "expected_sections": ["Item 1"]
+  },
+  {
+    "question": "What are AMD's main risk factors?",
+    "ticker": "AMD",
+    "expected_sections": ["Item 1A"]
+  },
+  {
+    "question": "What market risks does AMD discuss?",
+    "ticker": "AMD",
+    "expected_sections": ["Item 7A"]
+  },
+  {
+    "question": "How does AMD describe its business?",
+    "ticker": "AMD",
+    "expected_sections": ["Item 1"]
+  },
+  {
+    "question": "What are Microsoft's main risk factors?",
+    "ticker": "MSFT",
+    "expected_sections": ["Item 1A"]
+  },
+  {
+    "question": "How does Microsoft manage cybersecurity?",
+    "ticker": "MSFT",
+    "expected_sections": ["Item 1C"]
+  },
+  {
+    "question": "What cybersecurity risks does Microsoft discuss?",
+    "ticker": "MSFT",
+    "expected_sections": ["Item 1A", "Item 1C"]
+  }
+]
