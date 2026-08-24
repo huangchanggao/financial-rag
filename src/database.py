@@ -13,6 +13,7 @@ def get_connection():
     )
 
     conn = sqlite3.connect(DB_PATH)
+    conn.execute("PRAGMA foreign_keys = ON")
 
     return conn
 
@@ -26,23 +27,30 @@ def create_tables():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         ticker TEXT UNIQUE NOT NULL,
         company_name TEXT NOT NULL,
-        cik TEXT NOT NULL
+        cik TEXT UNIQUE NOT NULL
     )
     """)
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS filings (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        company_id INTEGER NOT NULL,
-        form_type TEXT NOT NULL,
-        filing_date TEXT,
-        source_file TEXT,
-        source_url TEXT,
-
-        FOREIGN KEY (company_id)
-        REFERENCES companies(id)
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS filings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            company_id INTEGER NOT NULL,
+            form_type TEXT NOT NULL,
+            filing_date TEXT,
+            source_file TEXT,
+    
+            UNIQUE (
+                company_id,
+                form_type,
+                filing_date
+            ),
+    
+            FOREIGN KEY (company_id)
+                REFERENCES companies(id)
+        )
+        """
     )
-    """)
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS chunks (

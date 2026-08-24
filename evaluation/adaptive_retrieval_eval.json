@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "ticker": "NVDA",
+    "question": "What are NVIDIA's main businesses?",
+    "expected_sections": ["Item 1"],
+    "question_type": "single_section"
+  },
+  {
+    "id": 2,
+    "ticker": "NVDA",
+    "question": "What are the main risk factors facing NVIDIA?",
+    "expected_sections": ["Item 1A"],
+    "question_type": "single_section"
+  },
+  {
+    "id": 3,
+    "ticker": "NVDA",
+    "question": "What export-control risks does NVIDIA disclose, and how have those restrictions affected its recent business or financial performance?",
+    "expected_sections": ["Item 1A", "Item 7"],
+    "question_type": "cross_section"
+  },
+  {
+    "id": 4,
+    "ticker": "NVDA",
+    "question": "What cybersecurity risks does NVIDIA disclose, and how does NVIDIA manage those risks?",
+    "expected_sections": ["Item 1A", "Item 1C"],
+    "question_type": "cross_section"
+  },
+  {
+    "id": 5,
+    "ticker": "NVDA",
+    "question": "How does NVIDIA describe its exposure to market risk?",
+    "expected_sections": ["Item 7A"],
+    "question_type": "single_section"
+  },
+
+  {
+    "id": 6,
+    "ticker": "AMD",
+    "question": "What are AMD's main businesses and product areas?",
+    "expected_sections": ["Item 1"],
+    "question_type": "single_section"
+  },
+  {
+    "id": 7,
+    "ticker": "AMD",
+    "question": "What are the main risk factors facing AMD?",
+    "expected_sections": ["Item 1A"],
+    "question_type": "single_section"
+  },
+  {
+    "id": 8,
+    "ticker": "AMD",
+    "question": "What export-control risks does AMD disclose, and what operational or financial impacts from those restrictions does management report?",
+    "expected_sections": ["Item 1A", "Item 7"],
+    "question_type": "cross_section"
+  },
+  {
+    "id": 9,
+    "ticker": "AMD",
+    "question": "What cybersecurity risks does AMD disclose, and how does AMD manage those risks?",
+    "expected_sections": ["Item 1A", "Item 1C"],
+    "question_type": "cross_section"
+  },
+  {
+    "id": 10,
+    "ticker": "AMD",
+    "question": "How does AMD describe its exposure to market risk?",
+    "expected_sections": ["Item 7A"],
+    "question_type": "single_section"
+  },
+
+  {
+    "id": 11,
+    "ticker": "MSFT",
+    "question": "What are Microsoft's main businesses?",
+    "expected_sections": ["Item 1"],
+    "question_type": "single_section"
+  },
+  {
+    "id": 12,
+    "ticker": "MSFT",
+    "question": "What are the main risk factors facing Microsoft?",
+    "expected_sections": ["Item 1A"],
+    "question_type": "single_section"
+  },
+  {
+    "id": 13,
+    "ticker": "MSFT",
+    "question": "What cybersecurity risks does Microsoft disclose, and how does Microsoft manage those risks?",
+    "expected_sections": ["Item 1A", "Item 1C"],
+    "question_type": "cross_section"
+  },
+  {
+    "id": 14,
+    "ticker": "MSFT",
+    "question": "What are Microsoft's cloud and AI businesses, and what risks could affect those businesses?",
+    "expected_sections": ["Item 1", "Item 1A"],
+    "question_type": "cross_section"
+  },
+  {
+    "id": 15,
+    "ticker": "MSFT",
+    "question": "How does Microsoft describe its exposure to market risk?",
+    "expected_sections": ["Item 7A"],
+    "question_type": "single_section"
+  }
+]

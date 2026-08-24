@@ -365,6 +365,7 @@ def save_chunks_to_database(
     chunks
 ):
     conn = sqlite3.connect(DB_PATH)
+    conn.execute("PRAGMA foreign_keys = ON")
     cursor = conn.cursor()
 
     # 建立公司
@@ -396,7 +397,34 @@ def save_chunks_to_database(
 
     company_id = cursor.fetchone()[0]
 
-    # 建立 filing
+    # 檢查 filing 是否已存在
+    cursor.execute(
+        """
+        SELECT id
+        FROM filings
+        WHERE company_id = ?
+          AND form_type = ?
+          AND filing_date = ?
+        """,
+        (
+            company_id,
+            "10-K",
+            filing_date
+        )
+    )
+
+    existing_filing = cursor.fetchone()
+
+    if existing_filing:
+        print(
+            f"Filing 已存在，跳過 ingest："
+            f"{ticker} 10-K {filing_date}"
+        )
+
+        conn.close()
+        return
+
+    # 建立新的 filing
     cursor.execute(
         """
         INSERT INTO filings (
